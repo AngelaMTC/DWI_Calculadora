@@ -1,18 +1,16 @@
-//Imputs nombres:
-
 import React, { useState } from "react";
 import "./App.css";
 
 function App() {
 
-  let student = "Ángela María Talamantes Castañeda ~ 101243 ~ IDGS ~ 9°A";
+  let student = "Ángela María Talamantes Castañeda ~ 191243 ~ IDGS ~ 9°A";
   let subject = "Desarrollo Web Integral."
 
 
   const [people, setPeople] = useState([
     {
-      name: "John",
-      lastName: "Doe",
+      name: "Ángela",
+      lastName: "TC",
       counter: 0,
     },
   ]);
@@ -44,53 +42,61 @@ function App() {
 
   return (
     <div className="App">
-      <h2 className='textName'>Nombre: {student}</h2>
-      <h2 className='textName'>Materia: {subject}</h2>
+      <h2 className='textName' id="textN">Nombre: {student}</h2>
+      <h2 className='textName' id="textM">Materia: {subject}</h2>
+
+      <div id="Inputs">
       <input
+        id="InName"
         type="text"
         name="name"
+        placeholder="Nombre(s)"
         onChange={(event) => {
           setName(event.target.value);
         }}
       />
       <input
+        id="InApe"
         type="text"
         name="lastName"
+        placeholder="Apellido(s)"
         onChange={(event) => {
           setLastname(event.target.value);
         }}
       />
       <button
+        id="BtnAddUsr"
         onClick={() => {
           setPeople((current) => [{ name, lastName }, ...current]);
         }}
       >
-        Add user
+        ADD USER
       </button>
       <ul>
         {people.map((people, idx) => (
           <li id={idx}>{`${people.name} ${people.lastName}`}</li>
         ))}
       </ul>
+      </div>
 
       {/* / */}
       
-          <div>
-          <input type="number" name="fistNumber" onChange={(event) =>{
+          <div id="Inputs2">
+          <input id="InN1" type="number" name="fistNumber" placeholder="Número 1" onChange={(event) =>{
         numberOne = event.target.value;
         console.log(numberOne);
         }}
         />
-        <input type="number" name="secondNumber" onChange={(event) => {
+        <input id="InN2" type="number" name="secondNumber" placeholder="Número 2" onChange={(event) => {
           numberTwo = event.target.value;
           console.log(numberTwo);
         }}/>
 
         {/* Botones */}
-        <button onClick={() => {setCounter((+numberOne) + (+numberTwo))}}>SUMAR</button>
-        <button onClick={() => {setCounter(numberOne - numberTwo)}}>RESTAR</button>
-        <button onClick={() => {setCounter(numberOne * numberTwo)}}>MULTIPLICAR</button>
-        <button onClick={() => {setCounter(numberOne / numberTwo)}}>DIVIDIR</button>
+        <button id="BtnSumar" onClick={() => {setCounter((+numberOne) + (+numberTwo))}}>SUMAR</button>
+        <button id="BtnRestar" onClick={() => {setCounter(numberOne - numberTwo)}}>RESTAR</button>
+        <button id="BtnMultiplicar" onClick={() => {setCounter(numberOne * numberTwo)}}>MULTIPLICAR</button>
+        <button id="BtnDividir" onClick={() => {setCounter(numberOne / numberTwo)}}>DIVIDIR</button>
         
         
         {/* <button onClick={() => {setCounter((current) => ({
