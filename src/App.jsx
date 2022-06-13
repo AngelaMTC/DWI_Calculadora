@@ -35,15 +35,18 @@ function App() {
   const [name, setName] = useState("");
   const [counter, setCounter] = useState("");
   const [lastName, setLastname] = useState("");
-  let numberOne = 0;
-  let numberTwo = 0;
+  const [numberOne, setNumberOne] = useState(0);
+  const [numberTwo, setNumberTwo] = useState(0);
   // let result = 0;
 
 
   return (
     <div className="App">
+      <div className="content">
+      <div className="subject">
       <h2 className='textName' id="textN">Nombre: {student}</h2>
       <h2 className='textName' id="textM">Materia: {subject}</h2>
+      </div>
 
       <div id="Inputs">
       <input
@@ -67,14 +70,18 @@ function App() {
       <button
         id="BtnAddUsr"
         onClick={() => {
-          setPeople((current) => [{ name, lastName }, ...current]);
+          if(name !== "" && lastName !== ""){
+            setPeople((current) => [{ name, lastName }, ...current]);
+          }else{
+            window.alert("Debes agregar nombre y apellido.");
+          }
         }}
       >
         ADD USER
       </button>
-      <ul>
+      <ul id="ul">
         {people.map((people, idx) => (
-          <li id={idx}>{`${people.name} ${people.lastName}`}</li>
+          <li key={idx} id={idx}>{`${people.name} ${people.lastName}`}</li>
         ))}
       </ul>
       </div>
@@ -83,20 +90,27 @@ function App() {
       
           <div id="Inputs2">
           <input id="InN1" type="number" name="fistNumber" placeholder="Número 1" onChange={(event) =>{
-        numberOne = event.target.value;
-        console.log(numberOne);
+            setNumberOne(Number.parseInt(event.target.value));
+        // console.log(numberOne);
         }}
         />
         <input id="InN2" type="number" name="secondNumber" placeholder="Número 2" onChange={(event) => {
-          numberTwo = event.target.value;
-          console.log(numberTwo);
+            setNumberTwo(Number.parseInt(event.target.value));
+          // console.log(numberTwo);
         }}/>
 
         {/* Botones */}
-        <button id="BtnSumar" onClick={() => {setCounter((+numberOne) + (+numberTwo))}}>SUMAR</button>
+        <button id="BtnSumar" onClick={() => {setCounter(numberOne + numberTwo)}}>SUMAR</button>
         <button id="BtnRestar" onClick={() => {setCounter(numberOne - numberTwo)}}>RESTAR</button>
         <button id="BtnMultiplicar" onClick={() => {setCounter(numberOne * numberTwo)}}>MULTIPLICAR</button>
-        <button id="BtnDividir" onClick={() => {setCounter(numberOne / numberTwo)}}>DIVIDIR</button>
+        <button id="BtnDividir" onClick={() => {
+          if(numberOne <= 0 || numberTwo <= 0){
+            window.alert("Al dividir ambos números tienen que ser mayores a 0.");
+          }else{
+            setCounter(numberOne / numberTwo);
+          }
+          
+        }}>DIVIDIR</button>
         
         
         {/* <button onClick={() => {setCounter((current) => ({
@@ -121,7 +135,8 @@ function App() {
         <button onClick={() => restar(numberOne, numberTwo)}>RESTAR</button>
         <button onClick={() => dividir(numberOne, numberTwo)}>DIVIDIR</button>
         <button onClick={() => multiplicar(numberOne, numberTwo)}>MULTIPLICAR</button> */}
-        <h1 className='textRed'> Result: {[counter]}</h1>
+        <h1 className='textRed'> Result: {counter}</h1>
+          </div>
           </div>
 
     </div>
