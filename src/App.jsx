@@ -12,7 +12,7 @@ function App() {
       name: "Ángela",
       lastName: "TC",
       counter: 0,
-    },
+    }
   ]);
 
 // Funciones:
@@ -41,14 +41,14 @@ function App() {
 
 
   return (
+   
     <div className="App">
       <div className="content">
       <div className="subject">
       <h2 className='textName' id="textN">Nombre: {student}</h2>
       <h2 className='textName' id="textM">Materia: {subject}</h2>
       </div>
-
-      <div id="Inputs">
+      <div className="Inputs">
       <input
         id="InName"
         type="text"
@@ -58,6 +58,8 @@ function App() {
           setName(event.target.value);
         }}
       />
+
+     
       <input
         id="InApe"
         type="text"
@@ -79,13 +81,14 @@ function App() {
       >
         ADD USER
       </button>
-      <ul id="ul">
+        <div className="lista">
         {people.map((people, idx) => (
           <li key={idx} id={idx}>{`${people.name} ${people.lastName}`}</li>
         ))}
-      </ul>
       </div>
-
+    
+      
+      </div>
       {/* / */}
       
           <div id="Inputs2">
@@ -100,6 +103,7 @@ function App() {
         }}/>
 
         {/* Botones */}
+        <div className="botones">
         <button id="BtnSumar" onClick={() => {setCounter(numberOne + numberTwo)}}>SUMAR</button>
         <button id="BtnRestar" onClick={() => {setCounter(numberOne - numberTwo)}}>RESTAR</button>
         <button id="BtnMultiplicar" onClick={() => {setCounter(numberOne * numberTwo)}}>MULTIPLICAR</button>
@@ -111,7 +115,7 @@ function App() {
           }
           
         }}>DIVIDIR</button>
-        
+        </div>
         
         {/* <button onClick={() => {setCounter((current) => ({
           ...current === +numberOne + +numberTwo,
@@ -138,8 +142,7 @@ function App() {
         <h1 className='textRed'> Result: {counter}</h1>
           </div>
           </div>
-
-    </div>
+          </div>
 
   );
 
