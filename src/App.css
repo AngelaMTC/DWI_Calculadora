@@ -1,15 +1,15 @@
 .App {
   text-align: center;
   background-image: linear-gradient(to bottom right,rgb(107, 98, 98), rgb(163, 160, 163), rgb(107, 98, 98) );
+  height: 683px;
   /* width: 1304px; */
-  height: 645px;
   /* display: flex; */
   /* background-color: #282c34; */
 }
 
 .content {
   display: flex;
-  flex-wrap:wrap;
+ flex-wrap:wrap;
   justify-content: center;
 }
 
@@ -27,23 +27,34 @@
   }
 } */
 
-#Inputs {
-  border-style: outset;
+.Inputs {
+  border-style: groove;
   padding: 20px;
   margin: 10px;
-  width: 40%;
+  width: 40% ;
+  border-radius: 20px;
 }
 
-#ul {
+.botones{
+  flex: 1;
+}
+
+.lista {
   border-style: double;
   margin: 10px;
+  height: 100px;
+  list-style: none;
+  overflow: hidden;
+  overflow: scroll;
+  flex-wrap: wrap;
 }
 
 #Inputs2 {
-  border-style: outset;
+  border-style: groove;
   padding: 20px;
   margin: 10px;
-  width: 35%;
+  width: 40%;
+  border-radius: 20px;
 }
 
 #InName {
@@ -125,3 +136,9 @@
     transform: rotate(360deg);
   }
 } */
+
+
+.textName{
+ list-style: none;
+}
+
